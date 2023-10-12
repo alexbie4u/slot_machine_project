@@ -70,8 +70,10 @@ class SlotMachine:
                 
                 # Call the winnings function
                 winnings, winning_lines = self.check_winnings(columns, lines)
-                print(f"You won ${winnings}.")
-                if len(winning_lines) > 0:
+                if len(winning_lines) < 1:
+                    print("You did not win this time.")
+                else:
+                    print(f"You won ${winnings}.")
                     print(f"You won on lines:", *winning_lines,)
                     
                 self._balance = self._balance + winnings
